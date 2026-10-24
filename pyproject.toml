@@ -1,0 +1,7 @@
+[project]
+name = "password-generator"
+version = "0.1.0"
+description = "A CLI to generate cryptographically secure random passwords, with configurable length and charset."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
