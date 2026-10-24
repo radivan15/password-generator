@@ -45,19 +45,43 @@ With a background in SRE/Cloud Engineering, I'm familiar with secrets management
 
 ## Folder Structure
 
-not available yet.
+Current (Phase 1, small project):
+
+```
+password-generator/
+├── main.py
+├── pyproject.toml
+├── uv.lock
+├── .python-version
+├── .gitignore
+├── LICENSE
+├── ROADMAP.md
+└── README.md
+```
+
+Will grow in Phase 2 (`src/`, `tests/`, `Justfile`).
 
 ---
 
 ## Installation
 
-not available yet.
+Requires [uv](https://docs.astral.sh/uv/) and Python >= 3.13.
+
+```powershell
+git clone <repo-url>
+cd password-generator
+uv sync
+```
 
 ---
 
 ## How to Run
 
-not available yet.
+```powershell
+uv run python main.py
+```
+
+CLI flags (`--length`, `--count`, charset toggles) are not available yet, see [ROADMAP.md](ROADMAP.md).
 
 ---
 
