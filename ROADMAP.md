@@ -22,7 +22,7 @@ Throughout Phase 1: every function has type hints (`def generate(length: int) ->
 - [ ] Move password logic to `src/generator.py` as testable pure functions → verify: `main.py` still works via CLI
 - [ ] Write tests in `tests/` with `pytest` (`@pytest.mark.parametrize` for charset combinations & length edge cases) → verify: `pytest tests/ -v` green, coverage ≥ 70% (`pytest --cov=src tests/`)
 - [ ] (Optional) Property-based tests with `hypothesis`: for any length/charset, output length == length and every char is in the charset
-- [ ] Set up `pip-audit` for dependency scanning → verify: scan runs (expect few findings, the project uses only stdlib at runtime)
+- [ ] Set up `pip-audit` for dependency scanning → verify: scan runs (expect few findings, the only runtime dependency is loguru)
 - [ ] Create `Justfile` (`lint`, `test`, `security`, `check`, `format`) → verify: `just check` all green
 - [ ] Set up pre-commit hooks (`ruff` + `mypy`) → verify: a deliberately bad commit gets blocked
 - [ ] Push per feature
