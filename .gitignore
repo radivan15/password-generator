@@ -1,0 +1,30 @@
+# Virtual environment (uv venv)
+.venv/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.hypothesis/
+
+# Coverage reports
+.coverage
+htmlcov/
+
+# Environment variables (keep .env.example committed)
+.env
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
