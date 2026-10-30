@@ -81,7 +81,30 @@ uv sync
 uv run python main.py
 ```
 
-CLI flags (`--length`, `--count`, charset toggles) are not available yet, see [ROADMAP.md](ROADMAP.md).
+By default it prints one 16-character password using lowercase, uppercase, digits and symbols.
+
+| Flag | Description |
+|---|---|
+| `--length N` | Password length (default: 16) |
+| `--no-lowercase` | Exclude `a-z` |
+| `--no-uppercase` | Exclude `A-Z` |
+| `--no-digits` | Exclude `0-9` |
+| `--no-symbols` | Exclude symbols (`string.punctuation`) |
+
+Examples (output is random, yours will differ):
+
+```powershell
+PS> uv run python main.py
+?g9BK})<)tPAsgl|
+
+PS> uv run python main.py --length 24 --no-symbols
+XWpHqd9prk0CQvB1tjuydwTW
+
+PS> uv run python main.py --length 6 --no-lowercase --no-uppercase --no-symbols
+768992
+```
+
+`--count` and input validation are not available yet, see [ROADMAP.md](ROADMAP.md).
 
 ---
 
