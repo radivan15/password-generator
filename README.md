@@ -68,7 +68,7 @@ Will grow in Phase 2 (`src/`, `tests/`, `Justfile`).
 Requires [uv](https://docs.astral.sh/uv/) and Python >= 3.13.
 
 ```powershell
-git clone <repo-url>
+git clone https://github.com/radivan15/password-generator.git
 cd password-generator
 uv sync
 ```
