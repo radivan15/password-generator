@@ -4,4 +4,6 @@ version = "0.1.0"
 description = "CLI to generate cryptographically secure random passwords."
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "loguru>=0.8.0",
+]

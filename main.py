@@ -1,6 +1,8 @@
 import secrets
 import string
 import argparse
+import sys
+from loguru import logger
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate secure random passwords.")
@@ -46,6 +48,10 @@ def generate(length: int, charset: str) ->str:
     return random_string
 
 def main() -> None:
+    # Buang handler bawaan loguru (yang diagnose=True), ganti dengan versi aman
+    logger.remove()
+    logger.add(sys.stderr, level="INFO", diagnose=False)
+    
     args = parse_args()
     
     charset = build_charset(
@@ -57,6 +63,9 @@ def main() -> None:
 
     for _ in range(args.count):
         print(generate(args.length, charset))
+        
+    # Log EVENT-nya saja (berapa & seberapa panjang), BUKAN isi password
+    logger.info("Generated {count} password(s) of length {length}", count=args.count, length=args.length)
 
         
 if __name__ == "__main__":

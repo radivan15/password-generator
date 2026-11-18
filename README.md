@@ -3,7 +3,7 @@
 A CLI to generate cryptographically secure random passwords, with configurable length and charset.
 
 
-> Status: Phase 1 in progress 
+> Status: Phase 1 complete, Phase 2 next
 
 ---
 
@@ -108,6 +108,23 @@ PS> uv run python main.py --count 3 --length 12
 EutGW~U?W[1Q
 OI5Rs4Wk8>Vp
 /~|4z%g"X*!B
+```
+
+Passwords go to stdout, logs go to stderr (via loguru, with `diagnose=False` so variable values never appear in tracebacks). The password value itself is never logged. To get passwords only, e.g. for piping:
+
+```powershell
+PS> uv run python main.py --count 4
+UvUXo{B6Hzy$|T4A
+v`CNaP(C\HS:BIw*
+]w,5wRG<0CavXmCk
+DBF}!b>&\.^<.'Q#
+2026-11-18 20:09:45.949 +07:00 | INFO     | __main__:main:68 - Generated 4 password(s) of length 16
+
+PS> uv run python main.py --count 4 2>$null
+9|5\`h9[@w26X\fB
+G([N>']IG;o+{Y|Z
+'*TnrU_w6jA7}W^_
+nCfhb&[0IY0bwR9;
 ```
 
 Invalid input is rejected with a message on stderr and exit code `2`, with no traceback:
