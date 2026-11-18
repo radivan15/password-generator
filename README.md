@@ -110,7 +110,17 @@ OI5Rs4Wk8>Vp
 /~|4z%g"X*!B
 ```
 
-Input validation is not available yet, see [ROADMAP.md](ROADMAP.md).
+Invalid input is rejected with a message on stderr and exit code `2`, with no traceback:
+
+```powershell
+PS> uv run python main.py --length 0
+usage: main.py [-h] [--length LENGTH] [--no-uppercase] [--no-lowercase] [--no-digits] [--no-symbols] [--count COUNT]
+main.py: error: --length must be a positive integer
+
+PS> uv run python main.py --no-lowercase --no-uppercase --no-digits --no-symbols
+usage: main.py [-h] [--length LENGTH] [--no-uppercase] [--no-lowercase] [--no-digits] [--no-symbols] [--count COUNT]
+main.py: error: at least one character set must be enabled
+```
 
 ---
 

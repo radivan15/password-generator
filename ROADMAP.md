@@ -11,7 +11,7 @@ My execution plan for this project, broken into phases. I'll check items off as 
 - [x] Add `argparse` for `--length` → verify: length configurable via CLI
 - [x] Add charset toggles (`--no-uppercase`, etc.) → verify: charset changes according to flags
 - [x] Add `--count` to generate multiple passwords at once → verify: multiple passwords printed
-- [ ] Validate input (length <= 0, every charset disabled) → verify: clear error message + non-zero exit code, no traceback
+- [x] Validate input (length <= 0, every charset disabled) → verify: clear error message + non-zero exit code, no traceback
 - [ ] Add `loguru` logging to stderr, keep stdout for passwords only → verify: `uv run python main.py 2>$null` prints only passwords, password value never appears in logs
 
 Throughout Phase 1: every function has type hints (`def generate(length: int) -> str:`).

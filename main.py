@@ -10,7 +10,22 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--no-digits", action="store_true", help="exclude 0-9")
     parser.add_argument("--no-symbols", action="store_true", help="exclude symbols")
     parser.add_argument("--count", type=int, default=1, help="number of passwords (default: 1)")
-    return parser.parse_args()
+    
+    # simpan hasil parsing dulu, jangan langsung return
+    args = parser.parse_args()
+    
+    if args.length <= 0:
+        parser.error("--length must be a positive integer")
+        
+    if args.count <= 0:
+        parser.error("--count must be a positive integer")
+        
+    # Kalau semua kategori dimatikan, charset akan kosong → tidak ada karakter untuk dipilih
+    if args.no_lowercase and args.no_uppercase and args.no_digits and args.no_symbols:
+        parser.error("at least one character set must be enabled")
+
+                
+    return args
     
 def build_charset(lowercase: bool, uppercase: bool, digits: bool, symbols: bool) -> str: 
         # Mulai dari string kosong, tambahkan kategori yang aktif saja
