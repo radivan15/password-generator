@@ -3,15 +3,13 @@ import string
 import argparse
 
 def parse_args() -> argparse.Namespace:
-    # parseer = membaca args dari command line
     parser = argparse.ArgumentParser(description="Generate secure random passwords.")
-    # daftarkan flag --length dengan tipe int, default 16
     parser.add_argument("--length", type=int, default=16, help="password length (default: 16)")
-    # Kalau flag dipakai → True, kalau tidak → False. Tidak butuh nilai setelahnya.
     parser.add_argument("--no-uppercase", action="store_true", help="exclude A-Z")
     parser.add_argument("--no-lowercase", action="store_true", help="exclude a-z")
     parser.add_argument("--no-digits", action="store_true", help="exclude 0-9")
     parser.add_argument("--no-symbols", action="store_true", help="exclude symbols")
+    parser.add_argument("--count", type=int, default=1, help="number of passwords (default: 1)")
     return parser.parse_args()
     
 def build_charset(lowercase: bool, uppercase: bool, digits: bool, symbols: bool) -> str: 
@@ -42,10 +40,9 @@ def main() -> None:
         symbols=not args.no_symbols
     )
 
-    password = generate(args.length, charset)
-    print(password)
+    for _ in range(args.count):
+        print(generate(args.length, charset))
 
-    
-    
+        
 if __name__ == "__main__":
     main()

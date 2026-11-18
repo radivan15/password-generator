@@ -90,6 +90,7 @@ By default it prints one 16-character password using lowercase, uppercase, digit
 | `--no-uppercase` | Exclude `A-Z` |
 | `--no-digits` | Exclude `0-9` |
 | `--no-symbols` | Exclude symbols (`string.punctuation`) |
+| `--count N` | Number of passwords, one per line (default: 1) |
 
 Examples (output is random, yours will differ):
 
@@ -102,9 +103,14 @@ XWpHqd9prk0CQvB1tjuydwTW
 
 PS> uv run python main.py --length 6 --no-lowercase --no-uppercase --no-symbols
 768992
+
+PS> uv run python main.py --count 3 --length 12
+EutGW~U?W[1Q
+OI5Rs4Wk8>Vp
+/~|4z%g"X*!B
 ```
 
-`--count` and input validation are not available yet, see [ROADMAP.md](ROADMAP.md).
+Input validation is not available yet, see [ROADMAP.md](ROADMAP.md).
 
 ---
 
